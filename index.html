@@ -49,6 +49,7 @@ body{
 		$("#MedidaM").hide();
 		$("#MedidaH").hide();
 		$("#resultado").hide();
+		$("#bom1").hide();
 
 		$("#d3").click(function(){
         $("#MedidaM").hide();
@@ -124,6 +125,9 @@ body{
 			$("#resultado5").val(Cor_desvi_H.toFixed(2));
 			
 		});
+	$("#bom").click(function(){
+		alert('Insira este codigo no seu site: <iframe src="https://ericaslund.github.io/MassaCorporal/" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="600px" allowfullscreen></iframe>');
+	});
 	
 	
 	});
@@ -182,11 +186,11 @@ body{
 		Massa corporal em excesso (kg):<br>
 		<input type="number" id="resultado5" name="" step="any"><br><br>
 		<input type="button" id="bom" value="Embed" >
+		
 		</form>
-		<a class="embedly-button" href="http://embed.ly/code" data-url="https://ericaslund.github.io/MassaCorporal/">Embed</a>
-<script>!function(a){var b="embedly-platform",c="script";if(!a.getElementById(b)){var d=a.createElement(c);d.id=b,d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}}(document);</script>
+		
+		
 	</div>
 	
 
 	</body>
-</html>
