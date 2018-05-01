@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	
+input[type=number], select {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=button] {
+    width: 80%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=button]:hover {
+    background-color: #45a049;
+}
+
+div  {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 30%;
+}
+body{
+    background-image: url("gym.jpg");
+    background-position: top;
+    background-size: 100%;
+}
+</style>
+	<title></title>
+	<script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.
+11.3/jquery.min.js" ></script>
+<script >
+		$(document).ready(function() {
+		$("#MedidaM").hide();
+		$("#MedidaH").hide();
+		$("#resultado").hide();
+
+		$("#d3").click(function(){
+        $("#MedidaM").hide();
+        $("#MedidaH").show();
+    });
+		$("#d4").click(function(){
+        $("#MedidaM").show();
+        $("#MedidaH").hide();
+    });
+		
+		$("#kg").blur(function(){
+			if (form1.peso.value == "") {
+				window.alert("E necessario prencher o peso.");
+				return false;
+			}
+		});
+		$("#idade1").blur(function(){
+		  
+			if ($("#idade1").val() == "") {
+				window.alert("E necessario prencher a idade.");
+				return false;
+			}
+
+		});
+		$("#idade2").blur(function(){
+			if ($("#idade2").val() == "") {
+				window.alert("E necessario prencher a idade.");
+				return false;
+			}
+
+		});
+		$("#Bmulher").click(function(){
+			$("#resultado").show();
+			var M_peso = parseFloat($("#kg").val());
+			var M_idade = parseFloat($("#idade2").val());
+			var medidaM1 = parseFloat($("#M1").val());
+			var medidaM2 = parseFloat($("#M2").val());
+			var medidaM3 = parseFloat($("#M3").val());
+			var somaM = medidaM1 + medidaM2 + medidaM3;
+			var DensM = parseFloat(1.099421 - 0.0009929 * (somaM) + 0.0000023 * Math.pow((somaM),2) - 0.0001392 * (M_idade));
+			var Per_Gor_M = [(4.95 / DensM) - 4.50] * 100;
+			var Gor_Abs_M = (M_peso * Per_Gor_M) / 100;
+			var Mas_Mag_M = M_peso - Gor_Abs_M;
+			var Cor_ideal_M = Mas_Mag_M / 0.75;
+			var Cor_desvi_M = Mas_Mag_M - Cor_ideal_M;
+			$("#resultado1").val(Per_Gor_M.toFixed(2));
+			$("#resultado2").val(Gor_Abs_M.toFixed(2));
+			$("#resultado3").val(Mas_Mag_M.toFixed(2));
+			$("#resultado4").val(Cor_ideal_M.toFixed(2));
+			$("#resultado5").val(Cor_desvi_M.toFixed(2));
+
+		});
+
+          
+	$("#Bhomen").click(function(){
+			$("#resultado").show();
+			var H_peso = parseFloat($("#kg").val());
+			var H_idade = parseFloat($("#idade1").val());
+			var medidaH1 = parseFloat($("#H1").val());
+			var medidaH2 = parseFloat($("#H2").val());
+			var medidaH3 = parseFloat($("#H3").val());
+			var somaH = medidaH1 + medidaH2 + medidaH3;
+			var DensH = parseFloat(1.10938 - 0.0008267 * (somaH) + 0.0000023 * Math.pow((somaH),2) - 0.0001392 * (H_idade));
+			var Per_Gor_H = parseFloat([(4.95 / DensH)- 4.50] * 100);
+			var Gor_Abs_H = parseFloat((H_peso * Per_Gor_H) / 100);
+			var Mas_Mag_H = parseFloat(H_peso - Gor_Abs_H);
+			var Cor_ideal_H = parseFloat(Mas_Mag_H / 0.85);
+			var Cor_desvi_H = parseFloat(Mas_Mag_H - Cor_ideal_H);
+			$("#resultado1").val(Per_Gor_H.toFixed(2));
+			$("#resultado2").val(Gor_Abs_H.toFixed(2));
+			$("#resultado3").val(Mas_Mag_H.toFixed(2));
+			$("#resultado4").val(Cor_ideal_H.toFixed(2));
+			$("#resultado5").val(Cor_desvi_H.toFixed(2));
+			
+		});
+	
+
+	});
+
+
+	
+
+</script>
+
+</head>
+<body>
+	<div id="body" color="#f2f2f2">
+	<h3>Prencha os campos a seguir</h3>
+	<form name="form1" action="#" method="post" color="#a3a3a3">
+		<input type="radio" id="d3" name="sexo" value="masculino">Masculino
+		<input type="radio" id="d4" name="sexo" value="feminino">Feminino<br><br>
+		Peso Kg:<br>
+		<input type="number" id="kg" name="peso"  ><br>
+	</form>
+	<form id="MedidaH" name="form2">
+		Idade em anos:<br>
+		<input type="number" id="idade1" name="anosH" min="18" max="61" ><br><br>
+		<h3>Informe as dobras</h3>
+		Peitoral:<br>
+		<input type="number" name="Peitoral" id="H1" step="any"> mm.<br><br>
+		Abdominal:<br>
+		<input type="number" name="Abdominal" id="H2" step="any"> mm.<br><br>
+		Coxa:<br>
+		<input type="number" name="Coxa" id="H3" step="any"> mm.<br><br>
+		<input type="button" id="Bhomen"  value="calcular">
+
+
+	</form>
+	<form id="MedidaM" name="form3">
+		Idade em anos:<br>
+		<input type="number" id="idade2" name="anosM" min="18" max="55" ><br><br>
+		<h3>Informe as dobras</h3>
+		Triceps:<br>
+		<input type="number" name="Triceps" id="M1" step="any"> mm.<br><br>
+		Supra-iliaca:<br>
+		<input type="number" name="Supra-iliaca" id="M2" step="any"> mm.<br><br>
+		Coxa:<br>
+		<input type="number" name="Coxa2" id="M3" step="any"> mm.<br><br>
+		<input type="button" id="Bmulher" value="calcular">
+		
+	</form>
+	<form id="resultado" >
+		Percentual de Gordura (%):<br>
+		<input type="number" id="resultado1" name="" step="any"><br><br>
+		Gordura absoluta (kg):<br>
+		<input type="number" id="resultado2" name="" step="any"><br><br>
+		Massa magra absoluta (kg):<br>
+		<input type="number" id="resultado3" name="" step="any"><br><br>
+		Massa corporal ideal (kg):<br>
+		<input type="number" id="resultado4" name="" step="any"><br><br>
+		Massa corporal em excesso (kg):<br>
+		<input type="number" id="resultado5" name="" step="any"><br><br>
+		<input type="button" id="iframe" value="Embed" >
+		</form>
+	</div>
+
+	</body>
+</html>
