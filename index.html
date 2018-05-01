@@ -81,6 +81,48 @@ body{
 			}
 
 		});
+		$("#M1").blur(function(){
+			if ($("#M1").val() == "") {
+				window.alert("È necessario prencher esse campo com numeros.");
+				return false;
+			}
+
+		});
+		$("#M2").blur(function(){
+			if ($("#M2").val() == "") {
+				window.alert("È necessario prencher esse campo com numeros.");
+				return false;
+			}
+
+		});
+		$("#M3").blur(function(){
+			if ($("#M3").val() == "") {
+				window.alert("È necessario prencher esse campo com numeros.");
+				return false;
+			}
+
+		});
+		$("#H1").blur(function(){
+			if ($("#H1").val() == "") {
+				window.alert("È necessario prencher esse campo com numeros..");
+				return false;
+			}
+
+		});
+		$("#H2").blur(function(){
+			if ($("#H2").val() == "") {
+				window.alert("È necessario prencher esse campo com numeros.");
+				return false;
+			}
+
+		});
+		$("#H3").blur(function(){
+			if ($("#H3").val() == "") {
+				window.alert("È necessario prencher esse campo com numeros.");
+				return false;
+			}
+
+		});
 		$("#Bmulher").click(function(){
 			$("#resultado").show();
 			var M_peso = parseFloat($("#kg").val());
@@ -152,11 +194,11 @@ body{
 		<input type="number" id="idade1" name="anosH" min="18" max="61" ><br><br>
 		<h3>Informe as dobras</h3>
 		Peitoral:<br>
-		<input type="number" name="Peitoral" id="H1" step="any"> mm.<br><br>
+		<input type="number" name="Peitoral" id="H1" step="any" > mm.<br><br>
 		Abdominal:<br>
-		<input type="number" name="Abdominal" id="H2" step="any"> mm.<br><br>
+		<input type="number" name="Abdominal" id="H2" step="any" > mm.<br><br>
 		Coxa:<br>
-		<input type="number" name="Coxa" id="H3" step="any"> mm.<br><br>
+		<input type="number" name="Coxa" id="H3" step="any" > mm.<br><br>
 		<input type="button" id="Bhomen"  value="calcular">
 
 
@@ -166,11 +208,11 @@ body{
 		<input type="number" id="idade2" name="anosM" min="18" max="55" ><br><br>
 		<h3>Informe as dobras</h3>
 		Triceps:<br>
-		<input type="number" name="Triceps" id="M1" step="any"> mm.<br><br>
+		<input type="number" name="Triceps" id="M1" step="any" > mm.<br><br>
 		Supra-iliaca:<br>
-		<input type="number" name="Supra-iliaca" id="M2" step="any"> mm.<br><br>
+		<input type="number" name="Supra-iliaca" id="M2" step="any" > mm.<br><br>
 		Coxa:<br>
-		<input type="number" name="Coxa2" id="M3" step="any"> mm.<br><br>
+		<input type="number" name="Coxa2" id="M3" step="any" > mm.<br><br>
 		<input type="button" id="Bmulher" value="calcular">
 		
 	</form>
